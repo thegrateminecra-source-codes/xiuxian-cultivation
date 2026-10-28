@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name = "Fabric"
+            url = uri("https://maven.fabricmc.net/")
+        }
+        maven {
+            name = "KikuGie Releases"
+            url = uri("https://maven.kikugie.dev/releases")
+        }
+        maven {
+            name = "KikuGie Snapshots"
+            url = uri("https://maven.kikugie.dev/snapshots")
+        }
+    }
+    dependencies {
+        // back-compat adds these too, but own copies avoid relying on that
+        classpath "net.fabricmc.fabric-loom:net.fabricmc.fabric-loom.gradle.plugin:1.18-SNAPSHOT"
+        classpath "net.fabricmc.fabric-loom-remap:net.fabricmc.fabric-loom-remap.gradle.plugin:1.18-SNAPSHOT"
+    }
+}
+
+apply plugin: "dev.kikugie.loom-back-compat"
+
+// 26.x ships unobfuscated and wants Java 25
+int javaLevel = 25
+
+loom {
+    accessWidenerPath = rootProject.file("src/main/resources/cultivation_xiuxian.accesswidener")
+}
+
+version = sc.current.version
+base {
+    archivesName = "cultivation_xiuxian"
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${sc.current.version}"
+    loomx.applyMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.property('deps.fabric_loader')}"
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(javaLevel)
+    targetCompatibility = JavaVersion.toVersion(javaLevel)
+    toolchain {
+        languageVersion = org.gradle.jvm.toolchain.JavaLanguageVersion.of(javaLevel)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = javaLevel
+}
+
+processResources {
+    def props = [
+        version  : sc.current.version.toString(),
+        minecraft: "~${sc.current.version}".toString(),
+        java     : ">=${javaLevel}".toString(),
+        loader   : (project.property('deps.fabric_loader') as String),
+    ]
+    inputs.property("version", props.version)
+    inputs.property("minecraft", props.minecraft)
+    inputs.property("java", props.java)
+    inputs.property("loader", props.loader)
+
+    filesMatching("fabric.mod.json") {
+        expand(props)
+    }
+}
+
+jar {
+    from(rootProject.file("LICENSE"))
+}

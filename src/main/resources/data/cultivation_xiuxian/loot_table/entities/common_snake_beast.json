@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.2
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cultivation_xiuxian:shed_snake_skin"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "cultivation_xiuxian:entities/common_snake_beast"
+}

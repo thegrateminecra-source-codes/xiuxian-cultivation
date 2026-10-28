@@ -1,0 +1,39 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name = "Fabric"
+            url = uri("https://maven.fabricmc.net/")
+        }
+        maven {
+            name = "KikuGie Releases"
+            url = uri("https://maven.kikugie.dev/releases")
+        }
+        maven {
+            name = "KikuGie Snapshots"
+            url = uri("https://maven.kikugie.dev/snapshots")
+        }
+    }
+}
+
+plugins {
+    id("dev.kikugie.stonecutter").version "0.9.8"
+    id("dev.kikugie.loom-back-compat").version "0.4.2"
+    id("org.gradle.toolchains.foojay-resolver-convention").version "1.0.0"
+}
+
+stonecutter {
+    kotlinController = false
+    centralScript = "build-fabric.gradle"
+
+    create(getRootProject()) {
+        versions [
+            "26.3-fabric": "26.3",
+        ]
+
+        vcsVersion = "26.3-fabric"
+    }
+}
+
+rootProject.name = "cultivation_xiuxian"

@@ -1,0 +1,34 @@
+{
+  "entity.common_snake_beast.hurt": {
+    "category": "neutral",
+    "sounds": [
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/hurt1" },
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/hurt2" }
+    ]
+  },
+  "entity.common_snake_beast.alarm": {
+    "category": "neutral",
+    "sounds": [
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/alarm" }
+    ]
+  },
+  "entity.common_snake_beast.death": {
+    "category": "neutral",
+    "sounds": [
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/death" }
+    ]
+  },
+  "entity.common_snake_beast.slither": {
+    "category": "neutral",
+    "sounds": [
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/slither1" },
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/slither2" }
+    ]
+  },
+  "entity.common_snake_beast.lay": {
+    "category": "neutral",
+    "sounds": [
+      { "name": "cultivation_xiuxian:entity/common_snake_beast/lay" }
+    ]
+  }
+}

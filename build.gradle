@@ -1,0 +1,19 @@
+// repos for the loom deps stonecutter injects into the version nodes
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name = "Fabric"
+            url = uri("https://maven.fabricmc.net/")
+        }
+        maven {
+            name = "KikuGie Releases"
+            url = uri("https://maven.kikugie.dev/releases")
+        }
+        maven {
+            name = "KikuGie Snapshots"
+            url = uri("https://maven.kikugie.dev/snapshots")
+        }
+    }
+}

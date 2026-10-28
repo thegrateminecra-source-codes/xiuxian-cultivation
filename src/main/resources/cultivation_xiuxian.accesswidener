@@ -1,0 +1,11 @@
+accessWidener v2 official
+# vanilla keeps CreativeModeTab.Output protected, but building a custom tab needs a
+# DisplayItemsGenerator lambda that receives it; displayItemsGenerator itself is public
+accessible class net/minecraft/world/item/CreativeModeTab$Output
+
+# plains spawn injection mirrors what fabric-biome-api does: rebuild the biome's
+# NATURAL_MOB_SPAWNS attribute at server construction and swap the map on the biome
+accessible field net/minecraft/world/level/biome/Biome attributes Lnet/minecraft/world/attribute/EnvironmentAttributeMap;
+mutable field net/minecraft/world/level/biome/Biome attributes Lnet/minecraft/world/attribute/EnvironmentAttributeMap;
+accessible field net/minecraft/core/MappedRegistry registrationInfos Ljava/util/Map;
+accessible method net/minecraft/world/entity/SpawnPlacements register (Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacementType;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;)V

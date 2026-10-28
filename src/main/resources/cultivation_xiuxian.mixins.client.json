@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "cultivation_xiuxian.mixin.client",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CreativeModeInventoryScreenMixin",
+    "EntityRenderersMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

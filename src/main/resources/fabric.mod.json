@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "id": "cultivation_xiuxian",
+    "version": "${version}",
+    "name": "Cultivation Xiuxian",
+    "icon": "assets/cultivation_xiuxian/icon.png",
+    "description": "Cultivation / xiuxian content for Minecraft",
+    "authors": ["thegrateminecra"],
+    "license": "All Rights Reserved",
+    "entrypoints": {
+        "main": ["cultivation_xiuxian.CultivationXiuxian"]
+    },
+    "accessWidener": "cultivation_xiuxian.accesswidener",
+    "mixins": [
+        "cultivation_xiuxian.mixins.json",
+        "cultivation_xiuxian.mixins.client.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader}",
+        "minecraft": "${minecraft}",
+        "java": "${java}"
+    }
+}

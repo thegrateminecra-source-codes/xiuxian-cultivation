@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "cultivation_xiuxian.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "CreativeModeTabsMixin",
+    "DefaultAttributesAccess",
+    "DefaultAttributesMixin",
+    "MinecraftServerSpawnMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
